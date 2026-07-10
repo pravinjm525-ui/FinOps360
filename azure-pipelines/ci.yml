@@ -1,0 +1,25 @@
+trigger:
+  branches:
+    include:
+      - dev
+
+pool: vmImage:ubuntu-latest
+
+variables:
+  backendImage: finops360-backend
+  frontendImage: finops360-frontend
+
+stages:
+  - stage: Build
+    displayName: Build Application
+
+    jobs:
+      - job: Build
+        displayName: Build Job
+
+        steps:
+          - checkout: self
+          - script: |
+              echo "Repository downloaded successfully"
+
+            displayName: Checkout Repository
