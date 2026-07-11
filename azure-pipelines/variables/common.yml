@@ -1,0 +1,15 @@
+variables:
+  - name: vmImage
+    value: ubuntu-latest
+
+  - name: backendPath
+    value: backend
+
+  - name: frontendPath
+    value: frontend
+
+  - name: javaVersion
+    value: "17"
+
+  - name: nodeVersion
+    value: "20.x"

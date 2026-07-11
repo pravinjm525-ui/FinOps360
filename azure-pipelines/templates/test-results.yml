@@ -1,0 +1,17 @@
+jobs:
+
+- job: PublishTests
+
+  displayName: Publish Test Results
+
+  dependsOn:
+    - BuildBackend
+
+  steps:
+
+  - task: PublishTestResults@2
+
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: '**/surefire-reports/*.xml'
+      failTaskOnFailedTests: true

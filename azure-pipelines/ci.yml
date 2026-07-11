@@ -1,25 +1,19 @@
 trigger:
   branches:
     include:
-      - dev
-
-pool: vmImage:ubuntu-latest
+      - feature/*
 
 variables:
-  backendImage: finops360-backend
-  frontendImage: finops360-frontend
+  - template: variables/common.yml
+
+pool:
+  vmImage: $(vmImage)
 
 stages:
-  - stage: Build
-    displayName: Build Application
+  - template: stages/build.yml
 
-    jobs:
-      - job: Build
-        displayName: Build Job
+  - template: stages/quality.yml
 
-        steps:
-          - checkout: self
-          - script: |
-              echo "Repository downloaded successfully"
+  - template: stages/package.yml
 
-            displayName: Checkout Repository
+  - template: stages/publish.yml

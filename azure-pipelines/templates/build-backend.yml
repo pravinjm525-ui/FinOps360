@@ -1,0 +1,26 @@
+jobs: 
+  - job: BuildBackend 
+    displayname: Biuld Backend 
+
+    steps:
+      - checkout: self
+
+      - script: |
+          echo " Repository Downloaded"
+          pwd 
+          ls -la 
+
+        displayname: Verify Checkout 
+
+        - task:
+          displayname: Install Java
+          inputs: 
+            versionSpec: $(javaVersion)
+            jdkArchitectureOption: 64
+            jdkSourceOption: PreInstalled 
+
+      - script: |
+          cd $(backendPath)
+          mvn clean verify 
+
+        displayname: Maven Verify

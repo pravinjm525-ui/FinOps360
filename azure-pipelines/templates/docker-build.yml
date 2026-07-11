@@ -1,0 +1,33 @@
+jobs:
+
+- job: DockerBuild
+
+  displayName: Docker Build
+
+  dependsOn:
+    - BuildBackend
+    - BuildFrontend
+
+  steps:
+
+  - checkout: self
+
+  - script: |
+      echo "Building Backend Docker Image"
+
+      docker build \
+        -t finops360-backend:$(Build.BuildId) \
+        -t finops360-backend:latest \
+        backend
+
+    displayName: Docker Build Backend
+
+  - script: |
+      echo "Building Frontend Docker Image"
+
+      docker build \
+        -t finops360-frontend:$(Build.BuildId) \
+        -t finops360-frontend:latest \
+        frontend
+
+    displayName: Docker Build Frontend

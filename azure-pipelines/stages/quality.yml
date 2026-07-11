@@ -1,0 +1,12 @@
+stages:
+  - stage: Quality
+    displayName: Quality Stage
+
+    dependsOn: Build
+
+    jobs:
+      - template: ../templates/test-results.yml
+
+      - template: ../templates/sonarqube.yml
+
+      - template: ../templates/security-scan.yml
