@@ -13,21 +13,26 @@ jobs:
   - checkout: self
 
   - script: |
-      echo "Building Backend Docker Image"
+      echo "Building Backend Docker Image..."
 
       docker build \
         -t finops360-backend:$(Build.BuildId) \
         -t finops360-backend:latest \
         backend
 
-    displayName: Docker Build Backend
+    displayName: Build Backend Docker Image
 
   - script: |
-      echo "Building Frontend Docker Image"
+      echo "Building Frontend Docker Image..."
 
       docker build \
         -t finops360-frontend:$(Build.BuildId) \
         -t finops360-frontend:latest \
         frontend
 
-    displayName: Docker Build Frontend
+    displayName: Build Frontend Docker Image
+
+  - script: |
+      docker images | grep finops360
+
+    displayName: Verify Docker Images

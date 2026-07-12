@@ -12,5 +12,6 @@ jobs:
   - script: |
       echo "Running OWASP Dependency Check..."
       echo "Scanning Maven Dependencies..."
+      echo "Security scan will be integrated in a later phase."
 
     displayName: Dependency Scan

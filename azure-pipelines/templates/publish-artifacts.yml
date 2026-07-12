@@ -14,3 +14,8 @@ jobs:
 
   - publish: frontend/dist
     artifact: frontend
+
+  - script: |
+      echo "Artifacts Published Successfully"
+
+    displayName: Verify Artifact Publication

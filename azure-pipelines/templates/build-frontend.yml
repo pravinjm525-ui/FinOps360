@@ -1,21 +1,23 @@
 jobs:
-  -job: BuildFrontend
 
-   displayname: Build Frontend
+- job: BuildFrontend
 
-   steps: 
+  displayName: Build Frontend
 
-     - checkout: self
+  steps:
 
-     - task: NodeTool@0
-       displayname: Install Node.js
+  - checkout: self
 
-       inputs: 
-         versionSpec: $(nodeVersion)
+  - task: NodeTool@0
 
-     - script: |
-       cd $(frontendPath)
-       npm install
-       npm run build 
+    displayName: Install Node.js
 
-      displayname: Build React Application 
+    inputs:
+      versionSpec: $(nodeVersion)
+
+  - script: |
+      cd $(frontendPath)
+      npm install
+      npm run build
+
+    displayName: Build React Application
