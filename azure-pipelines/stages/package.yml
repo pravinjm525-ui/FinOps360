@@ -1,0 +1,9 @@
+stages:
+  - stage: Package
+
+    displayName: Package Stage
+
+    dependsOn: Quality
+
+    jobs:
+      - template: ../templates/docker-build.yml

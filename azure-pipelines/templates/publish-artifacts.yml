@@ -1,0 +1,21 @@
+jobs:
+
+- job: PublishArtifacts
+
+  displayName: Publish Build Artifacts
+
+  dependsOn:
+    - DockerBuild
+
+  steps:
+
+  - publish: backend/target
+    artifact: backend
+
+  - publish: frontend/dist
+    artifact: frontend
+
+  - script: |
+      echo "Artifacts Published Successfully"
+
+    displayName: Verify Artifact Publication

@@ -1,0 +1,9 @@
+stages:
+  - stage: Publish
+
+    displayName: Publish Stage
+
+    dependsOn: Package
+
+    jobs:
+      - template: ../templates/publish-artifacts.yml

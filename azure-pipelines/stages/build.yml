@@ -1,0 +1,9 @@
+stages:
+  - stage: Build
+
+    displayName: Build Stage
+
+    jobs:
+      - template: ../templates/build-backend.yml
+
+      - template: ../templates/build-frontend.yml

@@ -1,0 +1,13 @@
+jobs:
+  - job: HealthCheck
+
+    displayName: Health Check
+
+    dependsOn:
+      - Deploy
+
+    steps:
+      - script: |
+          echo "Health Check will be implemented in the CD phase."
+
+        displayName: Verify Application

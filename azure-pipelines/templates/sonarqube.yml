@@ -1,0 +1,16 @@
+jobs:
+
+- job: SonarQube
+
+  displayName: SonarQube Analysis
+
+  dependsOn:
+    - PublishTests
+
+  steps:
+
+  - script: |
+      echo "Running SonarQube Analysis..."
+      echo "SonarQube will be configured in a later phase."
+
+    displayName: SonarQube Scan

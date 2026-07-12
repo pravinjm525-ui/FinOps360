@@ -1,0 +1,17 @@
+jobs:
+
+- job: SecurityScan
+
+  displayName: Security Scan
+
+  dependsOn:
+    - SonarQube
+
+  steps:
+
+  - script: |
+      echo "Running OWASP Dependency Check..."
+      echo "Scanning Maven Dependencies..."
+      echo "Security scan will be integrated in a later phase."
+
+    displayName: Dependency Scan

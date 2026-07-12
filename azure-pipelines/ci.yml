@@ -1,0 +1,19 @@
+trigger:
+  branches:
+    include:
+      - feature/*
+
+variables:
+  - template: variables/common.yml
+
+pool:
+  vmImage: $(vmImage)
+
+stages:
+  - template: stages/build.yml
+
+  - template: stages/quality.yml
+
+  - template: stages/package.yml
+
+  - template: stages/publish.yml
