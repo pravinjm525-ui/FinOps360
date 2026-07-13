@@ -1,13 +1,9 @@
-jobs:
-  - job: HealthCheck
+stages:
+  - stage: HealthCheck
 
-    displayName: Health Check
+    displayName: Health Check Stage
 
-    dependsOn:
-      - Deploy
+    dependsOn: Deploy
 
-    steps:
-      - script: |
-          echo "Health Check will be implemented in the CD phase."
-
-        displayName: Verify Application
+    jobs:
+      - template: ../templates/health-check.yml

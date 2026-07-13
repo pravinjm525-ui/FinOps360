@@ -1,4 +1,16 @@
 trigger: none
 
+pr: none
+
+variables:
+  - template: variables/common.yml
+
+pool:
+  vmImage: $(vmImage)
+
 stages:
   - template: stages/deploy.yml
+
+  - template: stages/health-check.yml
+
+  - template: stages/rollback.yml

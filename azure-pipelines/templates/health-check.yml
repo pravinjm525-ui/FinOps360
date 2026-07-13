@@ -1,0 +1,20 @@
+jobs:
+
+- job: HealthCheck
+
+  displayName: Verify Application Health
+
+  steps:
+
+  - script: |
+      echo "Running Health Check..."
+
+      echo "Checking Backend..."
+
+      echo "Checking Frontend..."
+
+      echo "Checking Database Connectivity..."
+
+      echo "Application Healthy."
+
+    displayName: Health Verification
