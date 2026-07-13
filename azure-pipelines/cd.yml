@@ -1,16 +1,30 @@
 trigger: none
 
-pr: none
+parameters:
+  - name: targetEnvironment
+    displayName: Target Environment
+    type: string
+    default: DEV
+    values:
+      - DEV
+      - UAT
+      - PROD
 
 variables:
   - template: variables/common.yml
 
-pool:
-  vmImage: $(vmImage)
-
 stages:
-  - template: stages/deploy.yml
+  - ${{ if eq(parameters.targetEnvironment, 'DEV') }}:
+      - template: stages/deploy.yml
+        parameters:
+          variableFile: variables/dev.yml
 
-  - template: stages/health-check.yml
+  - ${{ if eq(parameters.targetEnvironment, 'UAT') }}:
+      - template: stages/deploy.yml
+        parameters:
+          variableFile: variables/uat.yml
 
-  - template: stages/rollback.yml
+  - ${{ if eq(parameters.targetEnvironment, 'PROD') }}:
+      - template: stages/deploy.yml
+        parameters:
+          variableFile: variables/prod.yml

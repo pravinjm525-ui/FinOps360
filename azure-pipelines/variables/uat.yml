@@ -1,0 +1,12 @@
+variables:
+  environmentName: "UAT"
+
+  resourceGroup: "rg-finops360-uat"
+
+  appServiceName: "finops360-uat"
+
+  containerRegistry: "finops360uat.azurecr.io"
+
+  keyVaultName: "kv-finops360-uat"
+
+  databaseName: "finops360_uat"
