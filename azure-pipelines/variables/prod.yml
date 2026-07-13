@@ -1,0 +1,12 @@
+variables:
+  environmentName: "PROD"
+
+  resourceGroup: "rg-finops360-prod"
+
+  appServiceName: "finops360-prod"
+
+  containerRegistry: "finops360.azurecr.io"
+
+  keyVaultName: "kv-finops360-prod"
+
+  databaseName: "finops360_prod"

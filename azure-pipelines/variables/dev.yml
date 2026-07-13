@@ -1,0 +1,12 @@
+variables:
+  environmentName: "DEV"
+
+  resourceGroup: "rg-finops360-dev"
+
+  appServiceName: "finops360-dev"
+
+  containerRegistry: "finops360dev.azurecr.io"
+
+  keyVaultName: "kv-finops360-dev"
+
+  databaseName: "finops360_dev"

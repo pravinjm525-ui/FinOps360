@@ -1,15 +1,24 @@
 variables:
-  - name: vmImage
-    value: ubuntu-latest
+  applicationName: "finops360"
 
-  - name: backendPath
-    value: backend
+  applicationType: "springboot"
 
-  - name: frontendPath
-    value: frontend
+  dockerRegistryServiceConnection: "acr-service-connection"
 
-  - name: javaVersion
-    value: "17"
+  imageRepository: "finops360"
 
-  - name: nodeVersion
-    value: "20.x"
+  dockerfilePath: "backend/Dockerfile"
+
+  buildConfiguration: "Release"
+
+  vmImageName: "ubuntu-latest"
+
+  artifactName: "drop"
+
+  javaVersion: "17"
+
+  mavenPomFile: "backend/pom.xml"
+
+  sonarProjectKey: "finops360"
+
+  healthEndpoint: "/actuator/health"
