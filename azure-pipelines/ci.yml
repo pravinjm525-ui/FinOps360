@@ -3,6 +3,11 @@ trigger:
     include:
       - feature/*
 
+pr:
+  branches:
+    include:
+      - dev
+
 variables:
   - template: variables/common.yml
 
