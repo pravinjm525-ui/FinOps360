@@ -1,0 +1,18 @@
+jobs:
+
+- job: Rollback
+
+  displayName: Rollback Deployment
+
+  steps:
+
+  - script: |
+      echo "Deployment Failed"
+
+      echo "Starting Rollback..."
+
+      echo "Rolling back to previous stable version..."
+
+      echo "Rollback Completed."
+
+    displayName: Rollback Application

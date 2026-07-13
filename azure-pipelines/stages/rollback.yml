@@ -1,0 +1,11 @@
+stages:
+  - stage: Rollback
+
+    displayName: Rollback Stage
+
+    dependsOn: HealthCheck
+
+    condition: failed()
+
+    jobs:
+      - template: ../templates/rollback.yml

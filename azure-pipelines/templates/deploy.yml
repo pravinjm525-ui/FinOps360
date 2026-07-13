@@ -1,0 +1,41 @@
+jobs:
+
+- deployment: DeployDEV
+
+  displayName: Deploy to DEV
+
+  environment: DEV
+
+  strategy:
+
+    runOnce:
+
+      deploy:
+
+        steps:
+
+        - checkout: self
+
+        - script: |
+            echo "======================================="
+            echo "Deploying FinOps360 to DEV Environment"
+            echo "======================================="
+
+            echo "Application Version:"
+            echo $(Build.BuildNumber)
+
+            echo "Deployment Started..."
+
+          displayName: Start Deployment
+
+        - script: |
+            echo "Docker Images"
+
+            docker images
+
+          displayName: Verify Docker Images
+
+        - script: |
+            echo "Deploy Successful"
+
+          displayName: Deployment Complete
