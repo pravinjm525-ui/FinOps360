@@ -14,28 +14,64 @@ jobs:
 
         steps:
 
+        # Checkout Repository
         - checkout: self
 
+        # Download Backend Artifact
+        - download: current
+          artifact: backend
+
+        # Download Frontend Artifact
+        - download: current
+          artifact: frontend
+
+        # Verify Download
         - script: |
             echo "======================================="
-            echo "Deploying FinOps360 to DEV Environment"
+            echo "Downloaded Artifacts"
             echo "======================================="
 
-            echo "Application Version:"
-            echo $(Build.BuildNumber)
+            ls -R $(Pipeline.Workspace)
 
-            echo "Deployment Started..."
+          displayName: Verify Downloaded Artifacts
+
+        # Start Deployment
+        - script: |
+            echo "======================================="
+            echo "Deploying FinOps360"
+            echo "======================================="
+
+            echo "Environment : DEV"
+            echo "Build Number: $(Build.BuildNumber)"
 
           displayName: Start Deployment
 
+        # Verify Docker
         - script: |
+            echo "Docker Version"
+
+            docker --version
+
+            echo ""
+
             echo "Docker Images"
 
             docker images
 
-          displayName: Verify Docker Images
+          displayName: Verify Docker Runtime
 
+        # Simulated Deployment
         - script: |
-            echo "Deploy Successful"
+            echo "Deploying Backend..."
 
-          displayName: Deployment Complete
+            echo "Deploying Frontend..."
+
+            echo "Deployment Completed"
+
+          displayName: Deploy Application
+
+        # Health Check
+        - template: health-check.yml
+
+        # Rollback
+        - template: rollback.yml
