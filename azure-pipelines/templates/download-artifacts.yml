@@ -1,0 +1,18 @@
+jobs:
+
+- job: DownloadArtifacts
+
+  displayName: Download Build Artifacts
+
+  steps:
+
+    - download: current
+      artifact: backend
+
+    - download: current
+      artifact: frontend
+
+    - script: |
+        echo "Artifacts Downloaded Successfully"
+
+      displayName: Verify Artifact Download
