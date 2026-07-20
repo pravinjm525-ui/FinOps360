@@ -1,10 +1,15 @@
+parameters:
+
+- name: environmentName
+  type: string
+
 jobs:
 
-- deployment: DeployDEV
+- deployment: Deploy
 
-  displayName: Deploy to DEV
+  displayName: Deploy
 
-  environment: DEV
+  environment: ${{ parameters.environmentName }}
 
   strategy:
 
@@ -41,7 +46,7 @@ jobs:
             echo "Deploying FinOps360"
             echo "======================================="
 
-            echo "Environment : DEV"
+            echo "Environment : ${{ parameters.environmentName }}"
             echo "Build Number: $(Build.BuildNumber)"
 
           displayName: Start Deployment

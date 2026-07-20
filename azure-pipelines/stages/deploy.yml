@@ -1,7 +1,20 @@
+parameters:
+  - name: environmentName
+    type: string
+
+  - name: variableFile
+    type: string
+
 stages:
   - stage: Deploy
 
-    displayName: Deploy Stage
+    displayName: Deploy
+
+    variables:
+      - template: ../${{ parameters.variableFile }}
 
     jobs:
       - template: ../templates/deploy.yml
+
+        parameters:
+          environmentName: ${{ parameters.environmentName }}
