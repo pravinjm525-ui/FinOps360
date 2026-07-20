@@ -17,17 +17,8 @@ variables:
   - template: variables/common.yml
 
 stages:
-  - ${{ if eq(parameters.targetEnvironment, 'DEV') }}:
-      - template: stages/deploy.yml
-        parameters:
-          variableFile: variables/dev.yml
+  - template: stages/deploy.yml
+    parameters:
+      environmentName: ${{ parameters.targetEnvironment }}
 
-  - ${{ if eq(parameters.targetEnvironment, 'UAT') }}:
-      - template: stages/deploy.yml
-        parameters:
-          variableFile: variables/uat.yml
-
-  - ${{ if eq(parameters.targetEnvironment, 'PROD') }}:
-      - template: stages/deploy.yml
-        parameters:
-          variableFile: variables/prod.yml
+      variableFile: variables/${{ lower(parameters.targetEnvironment) }}.yml
