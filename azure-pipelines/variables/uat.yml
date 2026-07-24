@@ -18,3 +18,5 @@ variables:
   deploymentSlot: "staging"
 
   variableGroup: "VG-FinOps360-UAT"
+
+  keyVaultSecretPrefix: "uat"
