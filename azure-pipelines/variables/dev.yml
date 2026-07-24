@@ -10,3 +10,11 @@ variables:
   keyVaultName: "kv-finops360-dev"
 
   databaseName: "finops360_dev"
+
+  azureSubscription: "Azure-DEV"
+
+  environmentUrl: "https://dev.finops360.com"
+
+  deploymentSlot: "development"
+
+  variableGroup: "VG-FinOps360-DEV"

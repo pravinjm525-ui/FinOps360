@@ -88,9 +88,11 @@ jobs:
 
         # Health Check
         - template: health-check.yml
+          condition: succeeded()
 
         # Rollback
         - template: rollback.yml
+          condition: failed()
 
             routeTraffic:
 

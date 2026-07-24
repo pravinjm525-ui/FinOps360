@@ -10,3 +10,11 @@ variables:
   keyVaultName: "kv-finops360-prod"
 
   databaseName: "finops360_prod"
+
+  azureSubscription: "Azure-PROD"
+
+  environmentUrl: "https://finops360.com"
+
+  deploymentSlot: "production"
+
+  variableGroup: "VG-FinOps360-PROD"

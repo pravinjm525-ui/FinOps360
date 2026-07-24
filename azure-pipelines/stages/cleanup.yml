@@ -1,0 +1,9 @@
+stages:
+  - stage: Cleanup
+
+    displayName: Cleanup Stage
+
+    condition: always()
+
+    jobs:
+      - template: ../templates/cleanup.yml
