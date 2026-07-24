@@ -10,3 +10,11 @@ variables:
   keyVaultName: "kv-finops360-uat"
 
   databaseName: "finops360_uat"
+
+  azureSubscription: "Azure-UAT"
+
+  environmentUrl: "https://uat.finops360.com"
+
+  deploymentSlot: "staging"
+
+  variableGroup: "VG-FinOps360-UAT"

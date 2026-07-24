@@ -22,3 +22,5 @@ stages:
       environmentName: ${{ parameters.targetEnvironment }}
 
       variableFile: variables/${{ lower(parameters.targetEnvironment) }}.yml
+
+  - template: stages/cleanup.yml

@@ -22,3 +22,11 @@ variables:
   sonarProjectKey: "finops360"
 
   healthEndpoint: "/actuator/health"
+
+  dockerImageTag: "$(Build.BuildId)"
+
+  deploymentTimeout: "30"
+
+  retryCount: "3"
+
+  enableRollback: true

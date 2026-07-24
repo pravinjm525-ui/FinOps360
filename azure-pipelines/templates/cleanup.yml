@@ -1,0 +1,16 @@
+jobs:
+
+- job: Cleanup
+
+  displayName: Cleanup Workspace
+
+  steps:
+
+  - script: |
+      echo "=================================="
+      echo "Cleaning Pipeline Workspace"
+      echo "=================================="
+
+      echo "Cleanup Complete"
+
+    displayName: Cleanup
