@@ -18,3 +18,5 @@ jobs:
       echo "Application Healthy."
 
     displayName: Health Verification
+
+    condition: succeeded()
