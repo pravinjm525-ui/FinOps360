@@ -1,0 +1,15 @@
+steps:
+
+- task: Cache@2
+  displayName: Restore Maven Cache
+
+  inputs:
+    key: 'maven | "$(Agent.OS)" | backend/pom.xml'
+    restoreKeys: |
+      maven | "$(Agent.OS)"
+    path: $(HOME)/.m2/repository
+
+- script: |
+    echo "Pipeline cache restored."
+
+  displayName: Verify Cache
