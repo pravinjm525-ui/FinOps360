@@ -1,0 +1,13 @@
+steps:
+
+- script: |
+    echo "====================================="
+    echo "Pipeline Notification"
+    echo "====================================="
+
+    echo "Project      : $(applicationName)"
+    echo "Build Number : $(Build.BuildNumber)"
+    echo "Environment  : $(environmentName)"
+    echo "Status       : SUCCESS"
+
+  displayName: Pipeline Notification
