@@ -16,6 +16,22 @@ parameters:
 variables:
   - template: variables/common.yml
 
+  - ${{ if eq(parameters.targetEnvironment,'DEV') }}:
+      - template: variables/dev.yml
+
+  - ${{ if eq(parameters.targetEnvironment,'UAT') }}:
+      - template: variables/uat.yml
+
+  - ${{ if eq(parameters.targetEnvironment,'PROD') }}:
+      - template: variables/prod.yml
+
+# Azure DevOps Variable Groups
+# (Enable after Azure DevOps setup)
+
+# - group: FinOps360-DEV
+# - group: FinOps360-UAT
+# - group: FinOps360-PROD
+
 stages:
   - template: stages/deploy.yml
     parameters:
