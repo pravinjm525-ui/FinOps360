@@ -3,6 +3,8 @@ stages:
 
     displayName: Build Stage
 
+    condition: succeeded()
+
     jobs:
       - template: ../templates/build-backend.yml
 
