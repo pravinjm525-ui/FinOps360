@@ -16,8 +16,8 @@ jobs:
       echo "Building Backend Docker Image..."
 
       docker build \
-        -t finops360-backend:$(Build.BuildId) \
-        -t finops360-backend:latest \
+        -t $(applicationName)-backend:$(imageTag) \
+        -t $(applicationName)-backend:$(imageLatest) \
         backend
 
     displayName: Build Backend Docker Image
@@ -26,8 +26,8 @@ jobs:
       echo "Building Frontend Docker Image..."
 
       docker build \
-        -t finops360-frontend:$(Build.BuildId) \
-        -t finops360-frontend:latest \
+        -t $(applicationName)-frontend:$(imageTag) \
+        -t $(applicationName)-frontend:$(imageLatest) \
         frontend
 
     displayName: Build Frontend Docker Image

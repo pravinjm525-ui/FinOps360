@@ -18,4 +18,10 @@ jobs:
   - script: |
       echo "Artifacts Published Successfully"
 
+      echo "Artifact Version : $(artifactVersion)"
+
+      echo "Docker Tag       : $(imageTag)"
+
+      echo "Build Number     : $(Build.BuildNumber)"
+
     displayName: Verify Artifact Publication

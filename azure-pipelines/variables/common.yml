@@ -36,3 +36,11 @@ variables:
   serviceConnectionSubscription: "FinOps360-Subscription"
 
   tenantId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+  buildVersion: "$(Build.BuildNumber)"
+
+  imageTag: "$(Build.BuildId)"
+
+  imageLatest: "latest"
+
+  artifactVersion: "$(Build.BuildNumber)"
