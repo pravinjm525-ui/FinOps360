@@ -4,6 +4,7 @@ stages:
     displayName: Publish Stage
 
     dependsOn: Package
+    condition: succeeded()
 
     jobs:
       - template: ../templates/publish-artifacts.yml

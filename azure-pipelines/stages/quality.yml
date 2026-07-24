@@ -3,6 +3,7 @@ stages:
     displayName: Quality Stage
 
     dependsOn: Build
+    condition: succeeded()
 
     jobs:
       - template: ../templates/test-results.yml
