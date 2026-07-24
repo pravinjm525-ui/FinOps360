@@ -13,11 +13,22 @@ jobs:
 
   strategy:
 
-    runOnce:
+  rolling:
 
-      deploy:
+    maxParallel: 1
 
-        steps:
+    preDeploy:
+
+      steps:
+
+        - script: |
+            echo "Pre-Deployment Validation"
+
+          displayName: Pre Deployment
+
+    deploy:
+
+      steps:
 
         # Checkout Repository
         - checkout: self
@@ -80,3 +91,41 @@ jobs:
 
         # Rollback
         - template: rollback.yml
+
+            routeTraffic:
+
+      steps:
+
+        - script: |
+            echo "Routing Traffic"
+
+          displayName: Route Traffic
+
+    postRouteTraffic:
+
+      steps:
+
+        - script: |
+            echo "Post Deployment Validation"
+
+          displayName: Post Deployment Validation
+
+    on:
+
+      failure:
+
+        steps:
+
+          - script: |
+              echo "Deployment Failed"
+
+          displayName: Deployment Failure
+
+      success:
+
+        steps:
+
+          - script: |
+              echo "Deployment Successful"
+
+          displayName: Deployment Success
