@@ -18,3 +18,5 @@ variables:
   deploymentSlot: "production"
 
   variableGroup: "VG-FinOps360-PROD"
+
+  keyVaultSecretPrefix: "prod"

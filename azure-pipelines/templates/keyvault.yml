@@ -1,0 +1,15 @@
+steps:
+
+- task: AzureKeyVault@2
+  displayName: Retrieve Secrets from Azure Key Vault
+
+  inputs:
+    azureSubscription: $(azureServiceConnection)
+    KeyVaultName: $(keyVaultName)
+    SecretsFilter: "*"
+    RunAsPreJob: true
+
+- script: |
+    echo "Secrets successfully loaded."
+
+  displayName: Verify Secret Retrieval

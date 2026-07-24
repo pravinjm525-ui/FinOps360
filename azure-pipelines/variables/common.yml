@@ -30,3 +30,9 @@ variables:
   retryCount: "3"
 
   enableRollback: true
+
+  azureServiceConnection: "azure-service-connection"
+
+  serviceConnectionSubscription: "FinOps360-Subscription"
+
+  tenantId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

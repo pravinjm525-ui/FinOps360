@@ -18,3 +18,5 @@ variables:
   deploymentSlot: "development"
 
   variableGroup: "VG-FinOps360-DEV"
+
+  keyVaultSecretPrefix: "dev"
