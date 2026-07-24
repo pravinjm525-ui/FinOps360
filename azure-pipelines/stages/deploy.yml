@@ -8,7 +8,9 @@ parameters:
 stages:
   - stage: Deploy
 
-    displayName: Deploy
+    displayName: Deploy Stage
+
+    condition: succeeded()
 
     variables:
       - template: ../${{ parameters.variableFile }}

@@ -4,6 +4,8 @@ jobs:
 
   displayName: Rollback Deployment
 
+  condition: failed()
+
   steps:
 
   - script: |
