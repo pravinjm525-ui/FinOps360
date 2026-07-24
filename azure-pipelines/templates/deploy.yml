@@ -59,7 +59,10 @@ jobs:
             echo "======================================="
 
             echo "Environment : ${{ parameters.environmentName }}"
-            echo "Build Number: $(Build.BuildNumber)"
+            echo "Application : $(applicationName)"
+            echo "Version     : $(artifactVersion)"
+            echo "Image Tag   : $(imageTag)"
+            echo "Environment : $(environmentName)"
 
           displayName: Start Deployment
 
